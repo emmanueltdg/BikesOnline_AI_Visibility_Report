@@ -16,13 +16,14 @@
         Application Structure Plan: 
             1. Overview: AI Visibility Analysis intro.
             2. Current Standing: Detail on Reputation and what AI currently "understands".
-            3. Opportunities: Interactive breakdown of Brand Transition (A), Decision Queries (B), and Educational Coverage (C).
-            4. Strategic Insights: Visualizing the "Two Layers" of Authority with Radar Chart.
-            5. Impact Strategy: Rules for content creation to match AI selection.
-            6. Content Roadmap: Functional explorer for the 15 clusters.
+            3. The Experiment Lab: Interactive exploration of the CSV data (Long Queries, Keywords, Sources).
+            4. Opportunities: Interactive breakdown of Brand Transition (A), Decision Queries (B), and Educational Coverage (C).
+            5. Strategic Insights: Visualizing the "Two Layers" of Authority with Radar Chart.
+            6. Impact Strategy: Rules for content creation to match AI selection.
+            7. Content Roadmap: Functional explorer for the 15 clusters, now grounded in the experiment data.
         Visualization & Content Choices: 
             - Radar Chart: Compares Reputation vs Topical coverage.
-            - Visual Comparison Cards: Contrasts Reviewed Brand vs Trusted Guide.
+            - Query Sandbox: A filterable card system for the 15 experiment queries.
             - Roadmap Explorer: Manages 150 items through a filtered interactive UI.
         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. 
     -->
@@ -54,6 +55,17 @@
 
         .fade-in { animation: fadeIn 0.5s ease-in forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .source-tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -65,11 +77,15 @@
                 <span class="text-2xl">&#128690;</span>
                 <span class="text-xl font-bold tracking-tight">BikesOnline AI Dashboard</span>
             </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+            <!-- Navigation Links - Numbers Removed -->
+            <div class="hidden lg:flex space-x-6 text-sm font-medium text-slate-300">
                 <a href="#position" class="hover:text-white transition-colors">Current Position</a>
-                <a href="#growth" class="hover:text-white transition-colors">Growth</a>
-                <a href="#insight" class="hover:text-white transition-colors">Insights</a>
-                <a href="#roadmap" class="hover:text-white transition-colors">Roadmap</a>
+                <a href="#experiment" class="hover:text-white transition-colors">Experiment Lab</a>
+                <a href="#growth" class="hover:text-white transition-colors">Growth Opportunities</a>
+                <a href="#insight" class="hover:text-white transition-colors">Strategic Insight</a>
+                <a href="#opportunity" class="hover:text-white transition-colors">Strategic Opportunity</a>
+                <a href="#impact" class="hover:text-white transition-colors">Maximise Impact</a>
+                <a href="#roadmap" class="hover:text-white transition-colors">Content Roadmap</a>
             </div>
         </div>
     </nav>
@@ -81,27 +97,27 @@
                 AI Visibility Analysis
             </h1>
             <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light">
-                Here's a clearer picture of where BikesOnline currently sits within AI-generated answers and where the biggest opportunities are.
+                A clearer picture of where BikesOnline currently sits within AI-generated answers and where the biggest opportunities are.
             </p>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 md:px-8 py-16 space-y-32">
 
-        <!-- SECTION 1: Current Position -->
+        <!-- SECTION: Current Position -->
         <section id="position" class="scroll-mt-24">
             <div class="flex flex-col md:flex-row gap-12 items-center bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200">
                 <div class="md:w-1/2 space-y-6">
-                    <h2 class="text-3xl font-bold text-slate-900">1. Current Position in AI Responses</h2>
+                    <h2 class="text-3xl font-bold text-slate-900">Current Position in AI Responses</h2>
                     <div class="space-y-4">
                         <h3 class="text-xl font-semibold text-blue-600">Strong foundation already in place</h3>
                         <p class="text-slate-600 leading-relaxed">
-                            BikesOnline is consistently appearing in AI outputs through:
+                            BikesOnline is consistently appearing in AI outputs through trusted customer validation signals.
                         </p>
                         <div class="flex flex-wrap gap-3">
                             <span class="bg-slate-100 border border-slate-200 px-4 py-2 rounded-xl text-slate-700 font-medium">Trustpilot</span>
                             <span class="bg-slate-100 border border-slate-200 px-4 py-2 rounded-xl text-slate-700 font-medium">ProductReview</span>
-                            <span class="bg-slate-100 border border-slate-200 px-4 py-2 rounded-xl text-slate-700 font-medium">Customer Platforms</span>
+                            <span class="bg-slate-100 border border-slate-200 px-4 py-2 rounded-xl text-slate-700 font-medium">Customer feedback platforms</span>
                         </div>
                         <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded-r-xl">
                             <p class="font-bold text-emerald-900 mb-2">This is a great signal. It shows that:</p>
@@ -126,10 +142,41 @@
             </div>
         </section>
 
-        <!-- SECTION 2: Growth Opportunities -->
+        <!-- SECTION: THE EXPERIMENT LAB -->
+        <section id="experiment" class="scroll-mt-24 space-y-12">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">&#129516; The Experiment Lab: Deep Analysis</h2>
+                <p class="text-slate-600 text-lg leading-relaxed">
+                    We tested high-intent "Long Queries" to see how AI responds. Below is the raw data showing the triggers (Keywords) and the current winners (Sources).
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="flex flex-col lg:flex-row h-[650px]">
+                    <!-- Query Selector -->
+                    <div class="lg:w-1/3 border-r border-slate-200 flex flex-col">
+                        <div class="p-4 bg-slate-50 border-b border-slate-200">
+                            <div class="text-xs font-bold text-slate-500 uppercase tracking-widest">Select Experiment Query</div>
+                        </div>
+                        <div id="query-list" class="overflow-y-auto custom-scrollbar flex-1 p-2 space-y-1">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Analysis Display -->
+                    <div class="lg:w-2/3 flex flex-col bg-white">
+                        <div id="query-detail" class="p-8 flex-1 overflow-y-auto custom-scrollbar space-y-8">
+                            <div class="text-center py-20 text-slate-400 italic">Select a query to see the AI visibility breakdown.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Growth Opportunities -->
         <section id="growth" class="scroll-mt-24 space-y-12">
             <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">2. Where Growth Opportunities Exist</h2>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Where Growth Opportunities Exist</h2>
                 <p class="text-slate-600 text-lg">
                     While BikesOnline is visible, there's a clear opportunity to expand how the brand appears.
                 </p>
@@ -151,7 +198,7 @@
                         <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
                             <p class="text-xs text-blue-500 uppercase font-bold mb-2">Target Visibility</p>
                             <ul class="text-blue-900 text-sm font-medium space-y-1">
-                                <li>&#8226; Buying Advice</li>
+                                <li>&#8226; Buying advice</li>
                                 <li>&#8226; Comparisons</li>
                                 <li>&#8226; Recommendations</li>
                             </ul>
@@ -163,7 +210,7 @@
                 <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col">
                     <div class="text-blue-600 font-bold mb-4 uppercase text-xs tracking-widest">Opportunity B</div>
                     <h3 class="text-xl font-bold text-slate-900 mb-6">Expanding Presence in Decision Queries</h3>
-                    <p class="text-slate-600 text-sm mb-6">These are decision-stage queries, where users are choosing what to buy.</p>
+                    <p class="text-slate-600 text-sm mb-6">AI is frequently generating queries where users are choosing what to buy.</p>
                     <div class="space-y-3 font-mono text-xs">
                         <div class="bg-slate-900 text-emerald-400 p-3 rounded-lg">"gravel bike in Australia worth 4000"</div>
                         <div class="bg-slate-900 text-emerald-400 p-3 rounded-lg">"road vs gravel bike speed difference"</div>
@@ -180,7 +227,7 @@
                         <div class="flex items-start gap-3">
                             <span class="bg-blue-100 text-blue-600 p-1 rounded font-bold text-xs mt-1">1</span>
                             <div>
-                                <p class="font-bold text-slate-800 text-sm">Bike Comparisons</p>
+                                <p class="font-bold text-slate-800 text-sm">Bike comparisons</p>
                                 <p class="text-xs text-slate-500">Road vs Gravel, Hardtail vs Full Sus</p>
                             </div>
                         </div>
@@ -194,8 +241,8 @@
                         <div class="flex items-start gap-3">
                             <span class="bg-blue-100 text-blue-600 p-1 rounded font-bold text-xs mt-1">3</span>
                             <div>
-                                <p class="font-bold text-slate-800 text-sm">Use-Case Scenarios</p>
-                                <p class="text-xs text-slate-500">Commuting, Fitness, Regional Terrain</p>
+                                <p class="font-bold text-slate-800 text-sm">Use-case scenarios</p>
+                                <p class="text-xs text-slate-500">Commuting, Fitness, Mixed Terrain</p>
                             </div>
                         </div>
                     </div>
@@ -203,12 +250,12 @@
             </div>
         </section>
 
-        <!-- SECTION 3: Strategic Insight & Visual -->
+        <!-- SECTION: Strategic Insight & Visual -->
         <section id="insight" class="scroll-mt-24">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="space-y-10">
                     <div>
-                        <h2 class="text-3xl font-bold text-slate-900 mb-6">3. Key Strategic Insight</h2>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-6">Key Strategic Insight</h2>
                         <p class="text-slate-600 mb-8">AI answers are typically built using two layers:</p>
                         
                         <div class="space-y-8">
@@ -266,14 +313,19 @@
             </div>
         </section>
 
-        <!-- SECTION 4: Strategic Opportunity & Impact -->
-        <section class="space-y-16">
+        <!-- SECTION: Strategic Opportunity & Impact -->
+        <section id="opportunity" class="scroll-mt-24 space-y-16">
             <div class="bg-blue-600 rounded-3xl p-10 md:p-16 text-white shadow-2xl relative overflow-hidden">
                 <div class="relative z-10">
-                    <h2 class="text-4xl font-bold mb-8">4. Strategic Opportunity</h2>
+                    <h2 class="text-4xl font-bold mb-8">Strategic Opportunity</h2>
                     <p class="text-xl text-blue-100 max-w-2xl mb-12">
-                        This is a very positive position to be in. We already have Brand trust, Customer validation, and Market presence.
+                        This is a very positive position to be in. We already have:
                     </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/20 text-center font-bold">Brand trust</div>
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/20 text-center font-bold">Customer validation</div>
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/20 text-center font-bold">Market presence</div>
+                    </div>
                     <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
                         <p class="text-blue-200 text-sm uppercase font-bold tracking-widest mb-2">Primary Focus</p>
                         <h3 class="text-2xl md:text-3xl font-extrabold">Build content that positions BikesOnline as both a trusted retailer and a trusted advisor.</h3>
@@ -281,11 +333,11 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center scroll-mt-24" id="impact">
                 <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">5. How to Maximise Impact</h2>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">How to Maximise Impact</h2>
                     <p class="text-slate-600 mb-8 leading-relaxed">
-                        To perform well in AI-generated answers, content strategy must align with how AI selects its sources.
+                        To perform well in AI-generated answers, content should:
                     </p>
                     <ul class="space-y-6">
                         <li class="flex gap-4">
@@ -305,6 +357,7 @@
                             <p class="text-slate-700 font-medium">Include comparisons and trade-offs</p>
                         </li>
                     </ul>
+                    <p class="mt-8 text-blue-600 font-bold italic">This aligns closely with how AI selects sources.</p>
                 </div>
                 <div class="bg-slate-900 p-10 rounded-3xl text-center">
                     <h3 class="text-5xl mb-6">&#127919;</h3>
@@ -323,12 +376,12 @@
             </div>
         </section>
 
-        <!-- SECTION 5: Interactive Content Roadmap -->
+        <!-- SECTION: Interactive Content Roadmap -->
         <section id="roadmap" class="scroll-mt-24 pt-16 border-t border-slate-200">
             <div class="text-center max-w-3xl mx-auto mb-10">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">&#128218; Content Strategy Execution</h2>
                 <p class="text-slate-600 text-lg leading-relaxed">
-                    A comprehensive plan of 150 targeted articles divided into 15 thematic clusters to build Topical Authority.
+                    A plan of 150 targeted articles divided into clusters to build Topical Authority.
                 </p>
             </div>
 
@@ -371,7 +424,100 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // 1. Radar Chart Setup
+            // 1. Experiment Data (Extracted from CSV)
+            const experimentData = [
+                {
+                    topic: "Regional Rider + Mixed Terrain",
+                    query: "I live in regional Victoria and don’t have many local bike shops nearby, so I’m planning to buy a bike online. I want something I can ride on sealed roads during the week but also take out on gravel roads and dirt tracks on weekends. I’m not racing, but I do want something fairly quick and efficient so I can cut down on fuel costs. My budget is around $2,000 to $4,000 AUD. What type of bike should I be looking at, and what offers the best value in Australia?",
+                    keyword: "gravel bike in Australia worth 4000",
+                    sources: ["99 Bikes", "Croydon Cycleworks", "Cyclingnews", "Bikes.com.au", "BikesOnline", "BikeRadar", "Cycling Weekly"]
+                },
+                {
+                    topic: "First-Time Buyer + Trust Concerns",
+                    query: "I haven’t bought a bike in years and I’m a bit unsure about ordering one online in Australia. I’m mainly looking to improve my fitness and ride a few times a week on bike paths and quiet suburban roads. Are online bike stores safe? What should first-time buyers know?",
+                    keyword: "ordering bike online Australia safety",
+                    sources: ["ProductReview", "Trustpilot", "Reddit", "BikesOnline Warranty Page", "99 Bikes FAQ"]
+                },
+                {
+                    topic: "Online vs Local Bike Shop",
+                    query: "I'm trying to decide if I should buy my next road bike from a local shop or an online retailer like BikesOnline. I want the best components for my money ($3k-$5k) but I'm worried about service and setup. Which option actually offers better value in Australia?",
+                    keyword: "online bike vs local bike shop Australia",
+                    sources: ["BikeRadar", "Cycling Weekly", "Forum discussions", "Canyon Australia"]
+                },
+                {
+                    topic: "Beginner Mountain Biker",
+                    query: "I want to start trail riding on weekends around the Blue Mountains. I'm a total beginner. Should I get a hardtail or a full suspension mountain bike? My budget is around $4,500. What brands offer the best entry-level trail bikes?",
+                    keyword: "hardtail vs full suspension beginner MTB Australia",
+                    sources: ["Flow Mountain Bike", "Mountain Bike Australia", "99 Bikes", "Canyon", "Trek"]
+                },
+                {
+                    topic: "Replacing Short Car Trips",
+                    query: "I'm looking to replace my 10km car commute with a bike. I need something reliable, low maintenance, and comfortable enough for daily use on city roads. Is a hybrid or a road bike better for this?",
+                    keyword: "best bike for commuting Australia",
+                    sources: ["Cycling Weekly", "Urban cycling blogs", "99 Bikes", "Giant Bicycles"]
+                },
+                {
+                    topic: "Gravel vs Road Bike Decision",
+                    query: "I'm stuck between a road bike and a gravel bike. I mostly ride on pavement but want the option to explore fire trails. Is a gravel bike significantly slower on the road?",
+                    keyword: "road vs gravel bike speed difference",
+                    sources: ["BikeRadar", "GCN", "Cycling Weekly", "Canyon"]
+                },
+                {
+                    topic: "Upgrading from Entry-Level",
+                    query: "I currently have an entry-level bike and I’m ready to upgrade to something better. I ride regularly now and want smoother shifting, better performance, and an overall nicer ride feel. My budget is around $3,000 to $5,000 AUD. What should I be prioritising when upgrading?",
+                    keyword: "mountain bike shimano xt full suspension",
+                    sources: ["Canyon", "Shimano", "Reddit", "Bikepacking.com", "BikesOnline"]
+                }
+            ];
+
+            // Populate Experiment Lab Sidebar
+            const queryListContainer = document.getElementById('query-list');
+            const queryDetailContainer = document.getElementById('query-detail');
+            let activeQueryBtn = null;
+
+            experimentData.forEach((item, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl text-xs font-semibold transition-all border border-transparent hover:bg-slate-100 text-slate-600 flex items-center justify-between`;
+                btn.innerHTML = `<span>${item.topic}</span> <span class="text-slate-300">&#10141;</span>`;
+                
+                btn.onclick = () => {
+                    if (activeQueryBtn) activeQueryBtn.classList.remove('bg-blue-50', 'text-blue-700', 'border-blue-100');
+                    btn.classList.add('bg-blue-50', 'text-blue-700', 'border-blue-100');
+                    activeQueryBtn = btn;
+
+                    queryDetailContainer.innerHTML = `
+                        <div class="fade-in space-y-8">
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">The Raw User Query</h3>
+                                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-slate-700 italic leading-relaxed">
+                                    "${item.query}"
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">AI Intent Trigger</h3>
+                                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 font-mono text-sm text-emerald-700">
+                                        "${item.keyword}"
+                                    </div>
+                                    <p class="text-[10px] text-slate-400 mt-2">This is the distilled phrase AI uses to find sources.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Current Authority Leaders</h3>
+                                    <div class="flex flex-wrap">
+                                        ${item.sources.map(s => `<span class="source-tag">${s}</span>`).join('')}
+                                    </div>
+                                    <p class="text-[10px] text-slate-400 mt-2">Sites AI currently prioritises for this specific answer.</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                };
+                queryListContainer.appendChild(btn);
+                if (idx === 0) btn.click();
+            });
+
+            // 2. Radar Chart Setup
             const ctx = document.getElementById('authorityChart').getContext('2d');
             const authorityChart = new Chart(ctx, {
                 type: 'radar',
@@ -426,9 +572,9 @@
                 }
             });
 
-            // 2. Full Roadmap Data (Verbatim Titles)
+            // 3. Full Roadmap Data
             const roadmapData = {
-                "1. Regional Rider + Mixed Terrain": [
+                "Regional Rider + Mixed Terrain": [
                     "Best Bikes for Regional Riding in Australia: Road, Gravel, and Dirt Explained",
                     "Gravel vs Hybrid Bikes for Regional Areas: Which Is Better?",
                     "What to Look for in a Bike for Rough Roads and Gravel Tracks",
@@ -440,7 +586,7 @@
                     "How to Maintain Your Bike in Remote or Regional Areas",
                     "Best Value Bikes for Road and Light Trails Combined"
                 ],
-                "2. First-Time Buyer + Trust Concerns": [
+                "First-Time Buyer + Trust Concerns": [
                     "Buying a Bike Online in Australia: A Complete Beginner's Guide",
                     "Are Online Bike Stores Safe? What First-Time Buyers Should Know",
                     "What to Expect When Ordering a Bike Online",
@@ -452,7 +598,7 @@
                     "First Bike Checklist: Everything You Need to Know",
                     "Beginner Bikes Explained: Road, Hybrid, or Gravel?"
                 ],
-                "3. Online vs Local Bike Shop": [
+                "Online vs Local Bike Shop": [
                     "Buying a Bike Online vs Local Bike Shop: Which Is Better Value?",
                     "Why Online Bikes Often Offer Better Components for the Price",
                     "Pros and Cons of Buying from a Local Bike Shop",
@@ -464,7 +610,7 @@
                     "Which Option Is Better for Beginners?",
                     "When Should You Choose a Local Bike Shop Instead?"
                 ],
-                "4. Beginner Mountain Biker (Trail Riding)": [
+                "Beginner Mountain Biker (Trail Riding)": [
                     "Hardtail vs Full Suspension: Which Should Beginners Choose?",
                     "Best Beginner Mountain Bikes Under $4,500 AUD",
                     "What to Look for in a Trail Bike as a Beginner",
@@ -476,7 +622,7 @@
                     "Common Mistakes When Buying Your First MTB",
                     "Entry-Level vs Mid-Range Mountain Bikes: What's the Difference?"
                 ],
-                "5. Legitimacy + Warranty Concerns": [
+                "Legitimacy + Warranty Concerns": [
                     "Are Online Bike Shops in Australia Legit?",
                     "Bike Warranties Explained: What You're Actually Covered For",
                     "Returns and Refunds When Buying Bikes Online",
@@ -488,7 +634,7 @@
                     "How to Avoid Scams When Buying Bikes Online",
                     "Buyer Protection Tips for Online Cycling Purchases"
                 ],
-                "6. Fitness and Health Rider": [
+                "Fitness and Health Rider": [
                     "Best Bikes for Fitness and Weight Loss",
                     "Road vs Hybrid Bikes for Fitness Riding",
                     "How to Choose a Comfortable Bike for Regular Exercise",
@@ -500,7 +646,7 @@
                     "Upright vs Aggressive Riding Positions Explained",
                     "Budget Bikes for Fitness Riding Under $3,000"
                 ],
-                "7. Replacing Short Car Trips": [
+                "Replacing Short Car Trips": [
                     "Best Bikes for Commuting 10-15km",
                     "Road vs Hybrid vs Gravel for Daily Commuting",
                     "How to Choose a Low-Maintenance Commuter Bike",
@@ -512,7 +658,7 @@
                     "Commuting Gear Essentials for Daily Riders",
                     "How to Transition from Driving to Cycling"
                 ],
-                "8. Gravel vs Road Bike Decision": [
+                "Gravel vs Road Bike Decision": [
                     "Road vs Gravel Bikes: Key Differences Explained",
                     "Are Gravel Bikes Slower on the Road?",
                     "Which Bike Is Better for Mixed Terrain Riding?",
@@ -524,7 +670,7 @@
                     "Which Bike Is Better for Beginners?",
                     "Real-World Performance: Road vs Gravel"
                 ],
-                "9. E-Bike for Longer Commutes": [
+                "E-Bike for Longer Commutes": [
                     "Are E-Bikes Worth It for Commuting?",
                     "Best E-Bikes for Long Distance Commuting",
                     "What to Look for in a Commuter E-Bike",
@@ -536,7 +682,7 @@
                     "E-Bike vs Regular Bike for Commuting",
                     "Best Budget E-Bikes for Daily Use"
                 ],
-                "10. Components (Value Focus)": [
+                "Components (Value Focus)": [
                     "Shimano Deore vs SLX vs XT: Full Comparison",
                     "What Bike Components Matter Most?",
                     "Frame vs Components: Where to Spend More",
@@ -548,7 +694,7 @@
                     "Drivetrain Differences Explained",
                     "How to Upgrade Your Bike Components"
                 ],
-                "11. Assembly Concerns": [
+                "Assembly Concerns": [
                     "How to Assemble a Bike Bought Online",
                     "What Comes in the Box When You Order a Bike",
                     "Do You Need a Bike Shop for Assembly?",
@@ -560,7 +706,7 @@
                     "Safety Checks Before Your First Ride",
                     "Professional Assembly vs DIY"
                 ],
-                "12. Durability for Australian Conditions": [
+                "Durability for Australian Conditions": [
                     "What Makes a Durable Bike?",
                     "Best Bikes for Rough Roads and Gravel",
                     "How to Choose a Long-Lasting Bike",
@@ -572,7 +718,7 @@
                     "How to Protect Your Bike from Wear and Tear",
                     "Value Bikes That Last for Years"
                 ],
-                "13. Brand Trust (Polygon / Marin)": [
+                "Brand Trust (Polygon / Marin)": [
                     "Are Polygon Bikes Good? Full Review",
                     "Are Marin Bikes Worth It?",
                     "Polygon vs Marin: Which Brand Is Better?",
@@ -584,7 +730,7 @@
                     "Real-World Performance of Polygon Bikes",
                     "Are Direct-to-Consumer Bike Brands Worth It?"
                 ],
-                "14. Weekend Adventure Riding": [
+                "Weekend Adventure Riding": [
                     "Best Bikes for Weekend Adventure Riding",
                     "Gravel Bikes for Long Distance Comfort",
                     "What Makes a Good Adventure Bike?",
@@ -596,7 +742,7 @@
                     "Best Budget Adventure Bikes",
                     "How to Improve Endurance for Longer Rides"
                 ],
-                "15. Upgrading from Entry-Level": [
+                "Upgrading from Entry-Level": [
                     "Upgrading Your Bike: Where to Start",
                     "What to Expect from a $3,000-$5,000 Bike",
                     "Components vs Frame: Upgrade Priorities",
@@ -618,13 +764,12 @@
             let activeBtn = null;
 
             // Generate Cluster Sidebar
-            Object.keys(roadmapData).forEach((clusterName, idx) => {
+            Object.keys(roadmapData).forEach((title, idx) => {
                 const btn = document.createElement('button');
-                const [num, title] = clusterName.split('. ');
                 
                 btn.className = `w-full text-left p-4 rounded-2xl text-sm font-semibold transition-all border border-transparent hover:bg-slate-100 text-slate-700 flex justify-between items-center`;
                 btn.innerHTML = `
-                    <span class="truncate pr-2">${num}. ${title}</span>
+                    <span class="truncate pr-2">${title}</span>
                     <span class="text-[10px] bg-white border px-2 py-0.5 rounded-full text-slate-400">10</span>
                 `;
                 
@@ -633,11 +778,11 @@
                     btn.classList.add('bg-blue-50', 'border-blue-200', 'text-blue-700', 'shadow-sm');
                     activeBtn = btn;
 
-                    roadmapTheme.textContent = `Strategic Theme: ${num}`;
+                    roadmapTheme.textContent = `Strategic Theme`;
                     roadmapTitle.textContent = title;
                     
                     roadmapList.innerHTML = '';
-                    roadmapData[clusterName].forEach((article, i) => {
+                    roadmapData[title].forEach((article, i) => {
                         const li = document.createElement('li');
                         li.className = 'bg-white border border-slate-200 p-5 rounded-xl shadow-sm flex gap-4 fade-in items-center';
                         li.style.animationDelay = `${i * 40}ms`;
